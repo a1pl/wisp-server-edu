@@ -68,3 +68,8 @@ fastify.listen({
 	port: port,
 	host: "0.0.0.0",
 });
+
+
+
+// REQUIRED for Vercel serverless
+module.exports = fastify;
