@@ -62,14 +62,9 @@ function shutdown() {
 
 let port = parseInt(process.env.PORT || "");
 
-if (isNaN(port)) port = 8080;
+if (isNaN(port)) port = 2321;
 
 fastify.listen({
 	port: port,
 	host: "0.0.0.0",
 });
-
-
-
-// REQUIRED for Vercel serverless
-module.exports = fastify;
