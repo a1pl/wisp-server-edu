@@ -41,7 +41,7 @@ const fastify = Fastify({
                         wispConnection.write(rawRequest);
                         if (head?.length) wispConnection.write(head);
                         wispConnection.pipe(socket);
-                        wispConnection.pipe(wispConnection);
+                        socket.pipe(wispConnection);
                     });
                     wispConnection.on("error", (err) => {
                         console.error("[wisp server]", err);
