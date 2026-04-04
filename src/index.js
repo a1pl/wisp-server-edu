@@ -49,7 +49,7 @@ const fastify = Fastify({
                     });
                     socket.on("error", () => wispConnection.destroy());
                 } else {
-                    fastify.server.emit("upgrade", req, socket, head);
+                    socket.destroy();
                 }
             });
     },
