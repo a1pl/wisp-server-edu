@@ -8,7 +8,7 @@
 		"node": ">=16.0.0"
 	},
 	"scripts": {
-		"postinstall": "node -e \"import('fs').then(({existsSync,copyFileSync})=>{const d='node_modules/mrrowisp/dist/config.json';if(!existsSync(d))copyFileSync('node_modules/mrrowisp/dist/example.config.json',d)})\"",
+		"postinstall": "node -e \"import('fs').then(({existsSync,copyFileSync,readFileSync,writeFileSync})=>{const d='node_modules/mrrowisp/dist/config.json';if(!existsSync(d))copyFileSync('node_modules/mrrowisp/dist/example.config.json',d);const c=JSON.parse(readFileSync(d,'utf-8'));if(typeof c.port==='string')c.port=parseInt(c.port)||6001;writeFileSync(d,JSON.stringify(c,null,2))})\"",
 		"dev": "bun src/index.js",
 		"build": "echo 'No build step' || true",
 		"start": "bun src/index.js"
