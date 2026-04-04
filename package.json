@@ -9,9 +9,9 @@
 	},
 	"scripts": {
 		"postinstall": "[ -f node_modules/mrrowisp/dist/config.json ] || cp node_modules/mrrowisp/dist/example.config.json node_modules/mrrowisp/dist/config.json && sed -i 's/\"port\": *\"\\([0-9]*\\)\"/\"port\": \\1/' node_modules/mrrowisp/dist/config.json",
-		"dev": "bun src/index.js",
+		"dev": "node src/index.js",
 		"build": "echo 'No build step' || true",
-		"start": "bun src/index.js"
+		"start": "node src/index.js"
 	},
 	"keywords": [
 		"wisp",
